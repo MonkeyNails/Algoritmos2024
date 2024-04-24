@@ -1,0 +1,11 @@
+# 8. Implemente uma função que, dado um valor, retorne se esse valor pertence ou não a um vetor de inteiros.
+
+vetor = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, -1, -2, -3, -4, -5, -6, -7, -8, -9]
+valor = int(input("de um valor: "))
+stop = 0
+
+for i in range(len(vetor)):
+    if stop == 0:
+        if vetor[i] == valor:
+            stop = 1
+            print("o valor pertence ao vetor")
