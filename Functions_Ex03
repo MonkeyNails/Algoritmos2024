@@ -1,0 +1,8 @@
+# 3. Faça uma função que recebe por parâmetro o raio de uma esfera e calcule o seu volume (v = (4 x pi x R3)/3).
+
+def definir_volume_esfera(raio):
+    volume = (4 * 3.14 * raio ** 3) / 3
+    return volume
+
+
+print(f"o volume da esfera é de {definir_volume_esfera(5):.2f} Km³")
