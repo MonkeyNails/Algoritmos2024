@@ -1,0 +1,21 @@
+# 6. Escrever uma função calcularQuociente(dividendo, divisor), que retorna a divisão inteira
+# (sem casas decimais) de dividendo por divisor e outra função
+# calcularResto(dividendo, divisor) que retorna o resto.
+
+def calcular_quociente(dividendo, divisor):
+    quociente = dividendo / divisor
+    return quociente
+
+def calcular_resto(dividendo, divisor):
+    resto = dividendo % divisor
+    return resto
+
+
+dividendo = int(input("Dividendo: "))
+divisor = int(input("Divisor: "))
+
+quociente = calcular_quociente(dividendo, divisor)
+resto = calcular_resto(dividendo, divisor)
+
+print(f"o quociente é de {quociente:.0f}")
+print(f"o resto é de {resto}")
