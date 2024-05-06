@@ -1,0 +1,11 @@
+# 8. Escreva uma função que receba como parâmetro um valor n inteiro e positivo e calcule a seguinte soma:
+# S = 1 + 1/2 + 1/3 + 1/4 + ... + 1/n. A função deverá retornar o valor de S.
+
+def somar_valor_S(n):
+    S = 0
+    for i in range(1, n+1):
+        S += 1/i
+    return S
+
+
+print(somar_valor_S(2))
