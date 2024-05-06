@@ -1,0 +1,18 @@
+# 4. Escrever uma função contarImpar(n1, n2) que retorna o número de inteiros ímpares que existem entre n1
+# e n2 (inclusive ambos, se for o caso). A função deve funcionar inclusive se o valor de n2 for menor que n1.
+
+def contar_impar(n1, n2):
+    impares = 0
+    if n1 > n2:
+        for i in range(n2, n1+1):
+            if i % 2 != 0:
+                impares += 1
+    else:
+        if n2 > n1:
+            for i in range(n1, n2 + 1):
+                if i % 2 != 0:
+                    impares += 1
+    return impares
+
+
+print(f"{contar_impar(5, 7)} números são ímpares")
