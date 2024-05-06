@@ -1,0 +1,25 @@
+# 5.	Escrever uma função verificar_Estacao(dia, mes), que retorna qual a estação do ano da data passada por
+# parâmetro. Lembrando que a primavera começa no dia 23 de setembro, o verão em 21 de dezembro, o outono em 21 de
+# março e o inverno em 21 de junho.
+
+def verificar_estacao(dia, mes):
+    # primavera(23/09 ate 20/12)
+    # verão(21/12 ate 20/03)
+    # outono(21/03 ate 20/06)
+    # inverno(21/06 ate 22/09)
+    estacao = ""
+    if mes == 9 and dia >= 23 or mes == 10 or mes == 11 or mes == 12 and dia <= 20:
+        estacao = "primavera"
+    else:
+        if mes == 12 and dia >= 21 or mes == 1 or mes == 2 or mes == 3 and dia <= 20:
+            estacao = "verão"
+        else:
+            if mes == 3 and dia >= 21 or mes == 4 or mes == 5 or mes == 6 and dia <= 20:
+                estacao = "outono"
+            else:
+                if mes == 6 and dia >= 21 or mes == 7 or mes == 8 or mes == 9 and dia <= 22:
+                    estacao = "inverno"
+    return estacao
+
+
+print(f"a estação é {verificar_estacao(31, 12)}")
