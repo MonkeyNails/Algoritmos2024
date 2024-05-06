@@ -1,0 +1,25 @@
+# 2. Faça uma função que recebe a média final de um aluno por parâmetro e retorna o seu conceito,
+# conforme a tabela abaixo:
+
+# Nota 	Conceito
+# De 0 a 49 	D
+# De 50 a 69 	C
+# De 70 a 89 	B
+# De 90 a 100 	A
+
+def retornar_conceito(nota):
+    if 0 <= nota <= 49:
+        conceito = 'D'
+    else:
+        if 50 <= nota <= 69:
+            conceito = 'C'
+        else:
+            if 70 <= nota >= 89:
+                conceito = 'B'
+            else:
+                if 90 <= nota >= 100:
+                    conceito = 'A'
+    return conceito
+
+
+print(f"o conceito é {retornar_conceito(100)}")
