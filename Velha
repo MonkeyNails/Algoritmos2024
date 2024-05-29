@@ -1,0 +1,63 @@
+jogo = [['_', '_', '_'],
+        ['_', '_', '_'],
+        ['_', '_', '_']]
+
+jogadores = ['x', 'o']
+dimensao = len(jogo)
+
+def verificar_vitoria(jogo, dimensao, jogadores):
+    ganhou = False
+    for z in range(len(jogadores)):
+        for i in range(dimensao):
+            contador = 0
+            for j in range(dimensao):
+                if jogo[i][j] == jogadores[z]:
+                    contador += 1
+            if contador == dimensao:
+                print(f"{jogadores[z]} venceu em uma linha")
+                ganhou = True
+
+        for i in range(dimensao):
+            contador = 0
+            for j in range(dimensao):
+                if jogo[j][i] == jogadores[z]:
+                    contador += 1
+            if contador == dimensao:
+                print(f"{jogadores[z]} venceu em uma coluna")
+                ganhou = True
+
+        for i in range(dimensao):
+            contador = 0
+            for j in range(dimensao):
+                if jogo[j][j] == jogadores[z]:
+                    contador += 1
+        if contador == dimensao:
+            print(f"{jogadores[z]} venceu na diagonal principal")
+            ganhou = True
+
+        for i in range(dimensao):
+            contador = 0
+            for j in range(dimensao):
+                if jogo[j][len(jogo) - 1 - j] == jogadores[z]:
+                    contador += 1
+        if contador == dimensao:
+            print(f"{jogadores[z]} venceu na diagonal secundária")
+            ganhou = True
+    return ganhou
+
+
+verificar_vitoria(jogo, dimensao, jogadores)
+for a in range(dimensao * dimensao):
+    ganhou = False
+    for b in range(len(jogadores)):
+        if not ganhou:
+            linha = int(input("qual linha deseja jogar? "))
+            coluna = int(input("qual coluna deseja jogar? "))
+            print('-' * 20)
+            jogo[linha][coluna] = jogadores[b]
+            verificar_vitoria(jogo, dimensao, jogadores)
+            for linha in jogo:
+                print(linha)
+            print('-' * 20)
+
+
