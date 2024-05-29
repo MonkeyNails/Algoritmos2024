@@ -1,13 +1,28 @@
-jogo = [['_', '_', '_'],
-        ['_', '_', '_'],
-        ['_', '_', '_']]
+def criar_tabulero(dimensao):
+    jogo = []
+    for t in range(dimensao):
+        linha = []
+        for l in range(dimensao):
+            linha.append('_')
+        jogo.append(linha)
+    return jogo
 
+
+dimensao = 3
 jogadores = ['x', 'o']
-dimensao = len(jogo)
+jogo = criar_tabulero(dimensao)
+max_jogadas = dimensao * dimensao
+ganhou = False
+jogada = 1
+criar_tabulero(dimensao)
 
-def verificar_vitoria(jogo, dimensao, jogadores):
-    ganhou = False
+for linha in jogo:
+    print(linha)
+
+
+def verificar_vitoria(ganhou, jogo, dimensao, jogadores):
     for z in range(len(jogadores)):
+        # Verificar vitória em linha
         for i in range(dimensao):
             contador = 0
             for j in range(dimensao):
@@ -16,7 +31,7 @@ def verificar_vitoria(jogo, dimensao, jogadores):
             if contador == dimensao:
                 print(f"{jogadores[z]} venceu em uma linha")
                 ganhou = True
-
+        # Verificar vitoria em conluna
         for i in range(dimensao):
             contador = 0
             for j in range(dimensao):
@@ -25,7 +40,7 @@ def verificar_vitoria(jogo, dimensao, jogadores):
             if contador == dimensao:
                 print(f"{jogadores[z]} venceu em uma coluna")
                 ganhou = True
-
+        # verificar vitoria diagonal 1
         for i in range(dimensao):
             contador = 0
             for j in range(dimensao):
@@ -34,7 +49,7 @@ def verificar_vitoria(jogo, dimensao, jogadores):
         if contador == dimensao:
             print(f"{jogadores[z]} venceu na diagonal principal")
             ganhou = True
-
+        # Verificar vitória diagonal 2
         for i in range(dimensao):
             contador = 0
             for j in range(dimensao):
@@ -46,18 +61,28 @@ def verificar_vitoria(jogo, dimensao, jogadores):
     return ganhou
 
 
-verificar_vitoria(jogo, dimensao, jogadores)
-for a in range(dimensao * dimensao):
-    ganhou = False
+while not ganhou and jogada <= max_jogadas:
     for b in range(len(jogadores)):
-        if not ganhou:
-            linha = int(input("qual linha deseja jogar? "))
-            coluna = int(input("qual coluna deseja jogar? "))
-            print('-' * 20)
+        verificar_vitoria(ganhou, jogo, dimensao, jogadores)
+        linha = int(input("qual linha deseja jogar? "))
+        coluna = int(input("qual coluna deseja jogar? "))
+        print('-' * 20)
+        if jogo[linha][coluna] == '_':
             jogo[linha][coluna] = jogadores[b]
-            verificar_vitoria(jogo, dimensao, jogadores)
-            for linha in jogo:
-                print(linha)
-            print('-' * 20)
+            jogada += 1
+        else:
+            while jogo[linha][coluna] != '_':
+                print("jogada inválida")
+                for linha in jogo:
+                    print(linha)
+                print('-' * 20)
+                linha = int(input("qual linha deseja jogar? "))
+                coluna = int(input("qual coluna deseja jogar? "))
+            if jogo[linha][coluna] == '_':
+                jogo[linha][coluna] = jogadores[b]
+                jogada += 1
 
-
+        verificar_vitoria(ganhou, jogo, dimensao, jogadores)
+        for linha in jogo:
+            print(linha)
+        print('-' * 20)
