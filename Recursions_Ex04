@@ -1,0 +1,14 @@
+# 4. Pesquise a sequência de Fibonacci e faça uma função recursiva para exibir seus "n" primeiros termos,
+# sendo "n" um parâmetro da função.
+
+def exibir_termos(n, fibonacci):
+    if n > 0:
+        if len(fibonacci) > 1:
+            fibonacci.append(fibonacci[len(fibonacci) - 1] + fibonacci[len(fibonacci) - 2])
+        else:
+            fibonacci.append(fibonacci[0])
+        return exibir_termos(n - 1, fibonacci)
+    print(fibonacci)
+
+
+exibir_termos(8, [1])
