@@ -1,0 +1,11 @@
+# 5. Faça uma função recursiva que receba um vetor de números inteiros e seu tamanho e retorne a numero de seus
+# elementos.
+
+def somar_elementos(vetor, contador, soma):
+    if contador < len(vetor):
+        somar_elementos(vetor, contador + 1, soma + vetor[len(vetor) - 1 - contador])
+        return soma
+    print(f"a soma dos termos {vetor} é {soma}")
+
+
+somar_elementos([15, 28, -36, 34, -45, 64], 0, 0)
