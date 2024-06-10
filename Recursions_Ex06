@@ -1,0 +1,15 @@
+# 6. Faça uma função recursiva que receba um vetor de números inteiros e seu tamanho e retorne o menor elemento
+# deste vetor.
+
+def retornar_menor(vetor, contador, menor):
+    if contador < len(vetor):
+        if vetor[len(vetor) - 1 - contador] < menor:
+            retornar_menor(vetor, contador + 1, vetor[len(vetor) - 1 - contador])
+        else:
+            retornar_menor(vetor, contador + 1, menor)
+    if contador == len(vetor):
+        print(f"o menor termo do vetor {vetor} é {menor}")
+
+
+vetor = [5, 7, 2, -43, -768, 0, 98, -5]
+retornar_menor(vetor, 0, vetor[0])
