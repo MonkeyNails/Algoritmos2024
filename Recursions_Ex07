@@ -1,0 +1,10 @@
+# 7. Faça uma função recursiva que calcule o fatoria de um número.
+
+def calcular_fatorial(numero, contador, fatorial):
+    if contador < numero:
+        calcular_fatorial(numero, contador + 1, fatorial * (numero - contador))
+        return fatorial
+    print(f"o fatorial de {numero} é {fatorial}")
+
+
+calcular_fatorial(7, 0, 1)
